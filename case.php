@@ -42,3 +42,18 @@ switch($n) {
 		echo "Doesn't exist"; 
 } 
 ?> 
+<?php 
+$x = "February"; 
+
+if ($x = "February") { 
+	echo "Jest Luty ubierz buty \n"; 
+} 
+else { 
+	echo "Mamy inny miesiąc więc ubierz się jak chcesz \n"; 
+} 
+
+// This whole lot can be written in a 
+// single line using ternary operator 
+echo ($x = "February") ? 'Zimno co ??;)' : 
+				'The number is negative'; 
+?> 
