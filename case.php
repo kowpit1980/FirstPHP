@@ -45,7 +45,7 @@ switch($n) {
 <?php 
 $x = "February"; 
 
-if ($x = "February") { 
+if ($x == "Janury") { 
 	echo "Jest Luty ubierz buty \n"; 
 } 
 else { 
@@ -54,6 +54,6 @@ else {
 
 // This whole lot can be written in a 
 // single line using ternary operator 
-echo ($x = "February") ? 'Zimno co ??;)' : 
+echo ($x == "February") ? 'Zimno co ??;)' : 
 				'The number is negative'; 
 ?> 
