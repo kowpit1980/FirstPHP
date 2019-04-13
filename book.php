@@ -18,7 +18,7 @@ function __construct( $_author, $_title){
  }
 
 $fizyka = new Book("Mark Twain","teksańska masakra piłą" );
-$matematyka = new Book("Lolly Holly", "Kaszanka na deser");
+$matematyka = new Book("Lolly Holly", "Kaszanka na deser i podwieczorek");
 $chemia = new Book("Belly Dancer", "Ala ma kota");
 
 echo $fizyka -> author. "<br>"
