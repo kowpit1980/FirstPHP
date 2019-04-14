@@ -45,6 +45,37 @@ $dbh=connectDb();
         die("Adding record failed: " . mysqli_error()); 
     }
 		//output error message if query execution failed echo "Poseidon has been successfully added to your contacts list";
+
+        $dbh=connectDb();
+
+        if (!$dbh){
+        die ("No connection". mysqli_error());
+        
+        }
+        if(!mysqli_select_db($dbh,"phone_book")){
+            mysqli_close($dbh);
+        die ("Unable to connect to database" . mysqli_error());
+        }
+        
+        $sql_stmt = "SELECT * FROM phonebook";
+        $result = mysqli_query($dbh, $sql_stmt);
+        
+        if(!$result){
+            mysqli_close($dbh);
+            die ("Unable to execute query");
+        }
+        
+        $rows = mysqli_num_rows($result);
+        
+        if ($rows) {
+        while ($row = mysqli_fetch_array($result)){
+            echo 'ID' .$row['id'] . '<br>';
+            echo 'name' .$row['name'] . '<br>';
+            echo 'email' .$row['email'] . '<br>';
+            echo 'mobile' .$row['mobile'] . '<br>';
+        }
+        
+        }
         
  mysqli_close($dbh); //close the database connection
 } 
