@@ -8,6 +8,7 @@ if(isset($_POST["submitForm"])){
     $nm=$_POST['name']; 
     $email=$_POST['email']; 
     $mobile=$_POST['mobile']; 
+    $id=$_POST['id']; 
 
     $dbh=connectDb(); 
 
@@ -20,8 +21,7 @@ if(isset($_POST["submitForm"])){
 	    die("Unable to select database: " . mysql_error()); 
 	    //if selection fails output error message 
     }
-	$sql_stmt = "INSERT INTO `phonebook` (`name`,`email`,`mobile`)"; 
-	$sql_stmt .= " VALUES('$nm',' $email ','$mobile')"; 
+	$sql_stmt = "UPDATE `phonebook` SET `name`='$nm',`email`='$email',`mobile`='$mobile' WHERE `id` = $id"; 
     
 	$result = mysqli_query($dbh,$sql_stmt); //execute SQL statement 
     
@@ -31,6 +31,7 @@ if(isset($_POST["submitForm"])){
     }
 
     mysqli_close($dbh);
+    header('Location:'.'/teb/phonebookrecord.php?id=' .$id);
 } else {
  
 $id = $_GET['id'];
